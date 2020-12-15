@@ -1,17 +1,17 @@
 package test.java.projects;
 
 import org.junit.Test;
-import test.java.SauceTestBase;
+import test.java.LocalTestBase;
 
-public class SwagLabsTest extends SauceTestBase {
+public class SwagLabsTest extends LocalTestBase {
 
     @Test
-    public void forTagName() {
+    public void purchaseItems() {
         driver.get("https://www.saucedemo.com/");
 
         // Sign  in with Standard User
 
-        // Add a Bold T-Shirt and a Fleece Jacket to the Cart
+        // Add a Bolt T-Shirt and a Fleece Jacket to the Cart
 
         // Go to Cart & Check out
 

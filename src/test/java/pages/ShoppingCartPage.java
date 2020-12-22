@@ -8,4 +8,8 @@ public class ShoppingCartPage {
     public CheckoutSignIn checkOutSignIn() {
         return new CheckoutSignIn();
     }
+
+    public boolean isOnPage() {
+        return false;
+    }
 }

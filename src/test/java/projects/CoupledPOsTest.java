@@ -11,7 +11,7 @@ public class CoupledPOsTest extends SauceTestBase {
     @Test
     public void coupled() {
         Assert.assertTrue(
-                SauceDemoPage.visit()
+                SauceDemoPage.visit(driver)
                         .login(User.valid())
                         .selectProduct("Sauce Labs Bolt T-Shirt")
                         .selectProduct("Sauce Labs Fleece Jacket")
@@ -56,7 +56,7 @@ public class CoupledPOsTest extends SauceTestBase {
 
     @Test
     public void deCoupled() {
-        SauceDemoPage sauceDemoPage = SauceDemoPage.visit();
+        SauceDemoPage sauceDemoPage = SauceDemoPage.visit(driver);
         sauceDemoPage.login(User.valid());
 
         InventoryPage inventoryPage = new InventoryPage();

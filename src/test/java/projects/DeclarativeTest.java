@@ -11,7 +11,7 @@ public class DeclarativeTest extends SauceTestBase {
 
     @Test
     public void login() {
-        SauceDemoPage sauceDemoPage = SauceDemoPage.visit();
+        SauceDemoPage sauceDemoPage = SauceDemoPage.visit(driver);
         sauceDemoPage.login(User.valid());
 
         InventoryPage inventoryPage = new InventoryPage();

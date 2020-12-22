@@ -2,8 +2,12 @@ package test.java.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import test.java.data.User;
+
+import java.util.function.Function;
 
 public class SauceDemoPage {
     private WebDriver driver;
@@ -35,7 +39,7 @@ public class SauceDemoPage {
         validateSuccess();
     }
 
-    private void submitForm(User data) {
+    public void submitForm(User data) {
         driver.findElement(USERNAME).sendKeys(data.getUserName());
         driver.findElement(PASSWORD).sendKeys(data.getPassword());
         driver.findElement(SUBMIT).click();
@@ -46,9 +50,12 @@ public class SauceDemoPage {
     }
 
     public void validateSuccess() throws Exception {
-        if (!loginSuccessful()) {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        try {
+            wait.until((Function<WebDriver, Object>) driver -> loginSuccessful());
+        } catch (TimeoutException e) {
             String message = driver.findElement(ERROR).getText();
-            throw new Exception("Login was not successful: " + message);
+            throw new Exception("Login was not successful after 5 seconds: " + message);
         }
     }
 

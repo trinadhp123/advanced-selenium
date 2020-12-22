@@ -1,6 +1,20 @@
 package test.java.pages;
 
+import org.openqa.selenium.remote.RemoteWebDriver;
+
 public class ShoppingCartPage {
+    private RemoteWebDriver driver;
+    private static String url = "https://www.saucedemo.com/cart.html";
+
+
+    public ShoppingCartPage(RemoteWebDriver driver) {
+        this.driver = driver;
+    }
+
+    public ShoppingCartPage() {
+        super();
+    }
+
     public InformationPage checkOut() {
         return new InformationPage();
     }
@@ -10,6 +24,6 @@ public class ShoppingCartPage {
     }
 
     public boolean isOnPage() {
-        return false;
+        return driver.getCurrentUrl().equals(url);
     }
 }

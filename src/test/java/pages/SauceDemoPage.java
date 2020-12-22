@@ -7,7 +7,7 @@ public class SauceDemoPage {
         return new SauceDemoPage();
     }
 
-    public void login(User data) {
-
+    public InventoryPage login(User data) {
+        return new InventoryPage();
     }
 }
